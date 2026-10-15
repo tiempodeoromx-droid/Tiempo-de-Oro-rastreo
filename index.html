@@ -7,63 +7,100 @@
 <title>Rastrea tu pedido | Tiempo de Oro</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#111;background:#fff}
-header{padding:24px 16px;text-align:center}
-header img{max-width:min(270px,80vw);max-height:90px;object-fit:contain}
-.home{display:block;background:#000;color:#fff;text-align:center;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:1px;padding:17px}
-.wrap{min-height:52vh;max-width:900px;margin:auto;padding:54px 20px 72px;text-align:center}
-h1{font-size:clamp(28px,5vw,42px);margin:0 0 12px;font-weight:700}
-p{line-height:1.6;color:#555}
-.tracking-box{max-width:760px;margin:28px auto 12px;text-align:left}
-#YQNum{width:100%;border:1px solid #ccc;border-radius:3px;padding:16px;font-size:16px}
-.track-button{display:block;width:100%;margin-top:10px;border:0;border-radius:3px;background:#000;color:#fff;font-weight:700;padding:16px;cursor:pointer;letter-spacing:.5px}
-.track-button:hover{background:#333}
-#YQContainer{width:100%;max-width:100%;margin:24px auto 0;overflow-x:auto;text-align:left}
-.hint{font-size:13px}
-footer{background:#050505;color:#fff;padding:32px 20px;text-align:center;font-size:13px;line-height:1.8}
-footer a{color:#fff}
-footer p{color:#ddd}
-.links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0}
-@media(max-width:520px){.wrap{padding:38px 14px 54px}header{padding:20px 12px}}
+:root{--ink:#171717;--muted:#6b6b6b;--line:#e5e5e5}
+body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{padding:22px 18px;text-align:center;background:#fff}
+.brand{display:inline-block;color:#111;text-decoration:none;font-family:Georgia,'Times New Roman',serif;font-size:28px;letter-spacing:.18em;font-weight:600}
+.brand small{display:block;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:.35em;margin-top:5px}
+.home{display:block;width:100%;background:#000;color:#fff;text-align:center;padding:15px 18px;font-size:12px;font-weight:700;letter-spacing:.08em;text-decoration:none}
+.home:hover{background:#222}
+.wrap{width:min(760px,calc(100% - 36px));margin:0 auto;padding:62px 0 56px;text-align:center;min-height:52vh}
+.eyebrow{color:#555;font-size:11px;letter-spacing:.22em;font-weight:700;margin:0 0 13px}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,5vw,43px);line-height:1.15;font-weight:500;margin:0 0 15px}
+.intro{color:var(--muted);font-size:15px;line-height:1.7;max-width:520px;margin:0 auto 34px}
+.tracker-card{border:1px solid var(--line);border-radius:4px;padding:clamp(20px,4vw,32px);box-shadow:0 10px 35px rgba(0,0,0,.035);text-align:left}
+label{display:block;font-size:13px;font-weight:700;margin:0 0 10px}
+.form-row{display:flex;gap:10px}
+input{flex:1;min-width:0;height:52px;border:1px solid #d8d5ce;border-radius:3px;padding:0 15px;color:var(--ink);background:#fff;font-size:15px}
+input:focus{outline:2px solid #777;outline-offset:1px}
+button{min-height:52px;border:1px solid #000;border-radius:3px;background:#000;color:#fff;padding:0 23px;font-weight:700;font-size:12px;letter-spacing:.08em;cursor:pointer}
+button:hover{background:#222}
+.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0 0}
+#status{margin-top:18px;color:#8a3333;font-size:13px}
+#YQContainer{margin-top:24px;width:100%;overflow-x:auto}
+.help{text-align:center;margin:28px 0 0;font-size:13px;color:var(--muted);line-height:1.7}
+.help a{color:#000;text-underline-offset:3px}
+footer{border-top:1px solid #292929;padding:34px 20px 22px;color:#fff;font-size:12px;background:#000}
+.footer-inner{width:min(980px,100%);margin:0 auto}
+.footer-title{text-align:center;color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 0 18px}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:0 auto 25px;padding:0;list-style:none}
+.footer-links a,.footer-contact a,.social-link{color:#fff;text-decoration:none}
+.footer-links a:hover,.footer-contact a:hover,.social-link:hover{text-decoration:underline}
+.footer-contact{text-align:center;line-height:1.9;margin-bottom:22px}
+.footer-social{text-align:center;margin:0 auto 24px}
+.social-link{display:inline-flex;align-items:center;gap:8px;border:1px solid #555;padding:10px 16px}
+.footer-section{text-align:center;margin:24px auto}
+.footer-section-title{color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px}
+.trust-row{display:flex;justify-content:center;flex-wrap:wrap;align-items:center;gap:12px}
+.trust-mark{display:inline-flex;align-items:center;justify-content:center;min-height:28px;color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em}
+.card-mark{border:1px solid #777;padding:5px 8px;font-size:10px}
+.secure-title{font-size:13px;font-weight:700;letter-spacing:.12em;margin:0 0 5px}
+.secure-sub{color:#aaa;font-size:11px;margin:0}
+.footer-rule{width:42px;border:0;border-top:1px solid #555;margin:18px auto}
+.copyright{border-top:1px solid #292929;padding-top:18px;text-align:center;color:#fff;font-size:11px}
+.platform-credit{text-align:center;color:#ddd;font-size:10px;margin:20px 0 14px}
+@media(max-width:520px){.wrap{padding:42px 0 48px}.form-row{flex-direction:column}button{width:100%}.tracker-card{padding:20px 16px}.footer-links{gap:12px 16px}}
 </style>
 </head>
 <body>
 <header><a href="https://www.tiempodeoro.com.mx/" aria-label="Tiempo de Oro"><img src="https://www.tiempodeoro.com.mx/" alt="Tiempo de Oro" onerror="this.style.display='none'"></a></header>
 <a class="home" href="https://www.tiempodeoro.com.mx/">VOLVER AL INICIO</a>
 <main class="wrap">
-<h1>Rastrea tu pedido</h1>
-<p>Ingresa tu número de guía para consultar el estado de tu envío.</p>
-<div class="tracking-box">
-<form id="trackingForm">
-<label for="YQNum" style="display:block;margin-bottom:8px;font-weight:700">Número de guía</label>
-<input type="text" id="YQNum" maxlength="50" placeholder="Escribe tu número de guía" autocomplete="off" required>
-<button class="track-button" type="submit">RASTREAR ENVÍO</button>
-</form>
-<div id="YQContainer" aria-live="polite"></div>
-</div>
-<p class="hint">El seguimiento aparecerá aquí. El transportista puede detectarse automáticamente.</p>
+  <p class="eyebrow">TIEMPO DE ORO · SEGUIMIENTO</p>
+  <h1>Rastrea tu pedido</h1>
+  <p class="intro">Tu próximo detalle está en camino. Introduce tu número de seguimiento para consultar el estado más reciente de tu envío.</p>
+  <section class="tracker-card" aria-label="Seguimiento de paquete">
+    <form id="trackingForm">
+      <label for="YQNum">Número de seguimiento</label>
+      <div class="form-row">
+        <input type="text" id="YQNum" maxlength="50" placeholder="Ingresa tu número de guía" autocomplete="off" required>
+        <button type="submit">RASTREAR ENVÍO</button>
+      </div>
+    </form>
+    <p class="hint">Introduce la guía que recibiste en la confirmación de tu pedido. Los resultados aparecerán aquí.</p>
+    <div id="status" role="status" aria-live="polite"></div>
+    <div id="YQContainer" aria-live="polite"></div>
+  </section>
+  <p class="help">¿No encuentras tu número de seguimiento? Revisa el correo de confirmación de tu compra o <a href="https://www.tiempodeoro.com.mx/contacto/">contacta a Tiempo de Oro</a>.</p>
 </main>
-<footer><strong>¿Necesitas ayuda con tu pedido?</strong><div class="links"><a href="https://www.instagram.com/tiempodeoromx/">Instagram</a><a href="mailto:tiempodeoromx@gmail.com">Correo electrónico</a><a href="https://www.tiempodeoro.com.mx/">Tienda oficial</a></div><p>tiempodeoromx@gmail.com<br>Los Mochis, Sinaloa, México</p><p>© Tiempo de Oro. Todos los derechos reservados.</p></footer>
+<footer>
+  <div class="footer-inner">
+    <p class="footer-title">Atención y ayuda</p>
+    <nav aria-label="Enlaces del pie de página"><ul class="footer-links">
+      <li><a href="https://www.tiempodeoro.com.mx/contacto/">Contacto</a></li>
+      <li><a href="https://www.tiempodeoro.com.mx/privacidad/">Aviso de privacidad</a></li>
+      <li><a href="https://www.tiempodeoro.com.mx/aboutus/">¿Quiénes somos?</a></li>
+      <li><a href="https://www.tiempodeoro.com.mx/envios/">Envíos</a></li>
+      <li><a href="https://www.tiempodeoro.com.mx/devoluciones/">Devoluciones y cambios</a></li>
+      <li><a href="https://www.tiempodeoro.com.mx/preguntas-frecuentes/">Preguntas frecuentes</a></li>
+    </ul></nav>
+    <div class="footer-social"><a class="social-link" href="https://www.instagram.com/tiempodeoromx/" target="_blank" rel="noopener noreferrer">Instagram · @tiempodeoromx</a></div>
+    <div class="footer-contact"><div><a href="tel:+526681513193">668 151 3193</a></div><div><a href="mailto:tiempodeoromx@gmail.com">tiempodeoromx@gmail.com</a></div><div>Los Mochis, Sinaloa, México</div></div>
+    <div class="footer-section"><p class="secure-title">✓ &nbsp; PAGO SEGURO</p><p class="secure-sub">Transacciones protegidas</p><hr class="footer-rule"><p class="footer-section-title">Tarjetas aceptadas</p><div class="trust-row"><span class="trust-mark card-mark">VISA</span><span class="trust-mark card-mark">MASTERCARD</span><span class="trust-mark card-mark">AMEX</span><span class="trust-mark card-mark">DISCOVER</span><span class="trust-mark card-mark">JCB</span></div></div>
+    <div class="footer-section"><hr class="footer-rule"><p class="secure-title">ENVÍOS SEGUROS</p><p class="secure-sub">Seguimiento de tu pedido disponible en línea</p><hr class="footer-rule"><p class="secure-title">GARANTÍA DE 30 DÍAS</p><p class="secure-sub">Compra con confianza en Tiempo de Oro</p></div>
+    <div class="platform-credit">Creado con Tiendanube</div><div class="copyright">© Tiempo de Oro. Todos los derechos reservados.</div>
+  </div>
+</footer>
 <script src="https://www.17track.net/externalcall.js"></script>
 <script>
-document.getElementById('trackingForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var input=document.getElementById('YQNum');
-  var num=input.value.trim();
-  if(!num){input.focus();return;}
-  var container=document.getElementById('YQContainer');
-  container.innerHTML='';
-  if(typeof YQV5==='undefined'){
-    container.textContent='No se pudo cargar el servicio de rastreo. Actualiza la página e inténtalo de nuevo.';
-    return;
-  }
-  YQV5.trackSingle({
-    YQ_ContainerId:'YQContainer',
-    YQ_Height:560,
-    YQ_Fc:'0',
-    YQ_Lang:'es',
-    YQ_Num:num
-  });
+document.getElementById('trackingForm').addEventListener('submit',function(event){
+  event.preventDefault();
+  var input=document.getElementById('YQNum'), number=input.value.trim();
+  var status=document.getElementById('status'), container=document.getElementById('YQContainer');
+  if(!number){input.focus();return;}
+  status.textContent='';container.innerHTML='';
+  if(typeof YQV5==='undefined'){status.textContent='No se pudo cargar el servicio de rastreo. Actualiza la página e inténtalo de nuevo.';return;}
+  YQV5.trackSingle({YQ_ContainerId:'YQContainer',YQ_Height:560,YQ_Fc:'0',YQ_Lang:'es',YQ_Num:number});
 });
 </script>
 </body>
