@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>Arma tu Santos | Tiempo de Oro</title>
+<style>
+:root{--ink:#111;--muted:#6b6b6b;--line:#e6e6e6;--paper:#fff;--soft:#f6f6f4;--gold:#b99a5c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit}
+.topbar{height:44px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+header{height:82px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px)}
+.wordmark{text-decoration:none;font-family:Georgia,serif;letter-spacing:.19em;font-size:18px;font-weight:bold}
+.back{text-decoration:none;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+main{max-width:1240px;margin:0 auto;padding:34px 22px 76px}
+.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#777}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,4vw,49px);font-weight:400;letter-spacing:-.035em;margin:9px 0 10px}
+.intro{color:#666;line-height:1.6;font-size:14px;margin:0 0 28px;max-width:620px}
+.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:clamp(26px,5vw,72px);align-items:start}
+.preview{position:sticky;top:20px}
+.stage{background:#f7f7f5;min-height:560px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #eee}
+.stage:before{content:"";position:absolute;width:68%;height:25%;left:16%;bottom:13%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.14),rgba(0,0,0,0) 68%);filter:blur(14px)}
+.watch-svg{position:relative;z-index:1;width:min(88%,500px);height:auto;filter:drop-shadow(0 18px 13px rgba(0,0,0,.07))}
+.preview-foot{display:flex;justify-content:space-between;gap:14px;padding:13px 2px;color:#777;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.panel{border-top:1px solid var(--line)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;padding:19px 0 13px}
+.panel-head h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0;font-weight:600}
+.step{font-size:10px;color:#888}
+.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding-bottom:20px}
+.option{border:1px solid var(--line);background:#fff;text-align:left;min-height:78px;padding:12px;cursor:pointer;transition:border-color .15s,background .15s}
+.option:hover{border-color:#999}
+.option[aria-pressed=true]{border:1.5px solid #111;background:#faf9f6}
+.swatch{display:block;width:25px;height:25px;border-radius:50%;border:1px solid rgba(0,0,0,.12);margin-bottom:10px}
+.option-name{display:block;font-size:12px;font-weight:600}
+.option-sub{display:block;color:#888;font-size:10px;margin-top:4px}
+.summary{background:#f7f7f5;padding:18px;margin-top:10px}
+.summary-title{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#777;margin:0 0 12px}
+.summary-row{display:flex;justify-content:space-between;gap:15px;font-size:12px;padding:7px 0;border-bottom:1px solid #e7e7e4}
+.summary-row:last-of-type{border-bottom:0}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:15px}
+.total span:first-child{font-size:11px;color:#666}
+.price{font-family:Georgia,serif;font-size:27px}
+.cta{width:100%;margin-top:16px;border:0;background:#111;color:#fff;padding:17px 18px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.cta:hover{background:#292929}
+.microcopy{font-size:10px;line-height:1.55;color:#777;text-align:center;margin:11px 0 0}
+.notice{display:none;margin-top:12px;padding:13px;border:1px solid #e4d7b7;background:#fffaf0;font-size:12px;line-height:1.5}
+.notice.show{display:block}
+.reset{border:0;background:none;padding:5px 0;color:#666;text-decoration:underline;cursor:pointer;font-size:11px}
+footer{border-top:1px solid var(--line);padding:22px;text-align:center;font-size:10px;letter-spacing:.12em;color:#777}
+@media(max-width:800px){header{height:70px}.layout{grid-template-columns:1fr;gap:25px}.preview{position:static}.stage{min-height:390px}.watch-svg{width:min(88%,390px)}main{padding-top:25px}.options{gap:7px}.option{padding:10px;min-height:73px}}
+@media(max-width:420px){.stage{min-height:330px}.options{grid-template-columns:repeat(3,minmax(0,1fr))}.option-name{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="topbar">Tiempo de Oro · Diseña una pieza a tu estilo</div>
+<header><a class="wordmark" href="https://www.tiempodeoro.com.mx/">TIEMPO DE ORO</a><a class="back" href="https://www.tiempodeoro.com.mx/">Volver a la tienda ↗</a></header>
+<main>
+<div class="eyebrow">Taller de personalización · 01</div>
+<h1>Arma tu Santos</h1>
+<p class="intro">Tu reloj, tus decisiones. Combina acabados y colores para crear una propuesta única. La vista previa cambia con cada selección.</p>
+<div class="layout">
+<section class="preview" aria-label="Vista previa del reloj">
+<div class="stage">
+<svg class="watch-svg" viewBox="0 0 420 570" role="img" aria-label="Vista previa ilustrada de reloj Santos personalizado">
+<defs>
+ <linearGradient id="steel" x1="0" y1="0" x2="1" y2=".9"><stop offset="0" stop-color="#f5f5f5"/><stop offset=".22" stop-color="#bfc2c4"/><stop offset=".42" stop-color="#f9f9f9"/><stop offset=".67" stop-color="#a1a5a7"/><stop offset="1" stop-color="#e6e7e7"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2=".8"><stop offset="0" stop-color="#f1dca3"/><stop offset=".3" stop-color="#b18a3f"/><stop offset=".52" stop-color="#f5e4b6"/><stop offset=".78" stop-color="#a57b32"/><stop offset="1" stop-color="#e5c987"/></linearGradient>
+ <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#555"/><stop offset=".25" stop-color="#111"/><stop offset=".55" stop-color="#333"/><stop offset="1" stop-color="#080808"/></linearGradient>
+ <linearGradient id="dialLight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe3e5"/></linearGradient>
+ <linearGradient id="dialBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#587d9e"/><stop offset=".5" stop-color="#183954"/><stop offset="1" stop-color="#0b1e2e"/></linearGradient>
+ <linearGradient id="dialGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c9c8c"/><stop offset=".5" stop-color="#244d3e"/><stop offset="1" stop-color="#0f2c22"/></linearGradient>
+ <pattern id="texture" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0L7 7M-2 2L2 -2M5 9L9 5" stroke="#fff" stroke-opacity=".08" stroke-width=".8"/></pattern>
+</defs>
+<!-- bracelet: separate repeated links -->
+<g id="bracelet">
+ <path d="M155 36 Q210 20 265 36 L283 180 L280 386 L264 531 Q210 548 156 531 L140 386 L137 180Z" fill="url(#steel)" stroke="#777" stroke-width="2"/>
+ <path d="M177 39 L194 35 L192 530 L175 526Z" fill="#fff" opacity=".42"/>
+ <path d="M226 35 L243 39 L245 526 L228 530Z" fill="#777" opacity=".25"/>
+ <g id="links" stroke="#73777a" stroke-width="1.3">
+  <path d="M147 75L273 75M145 101L275 101M143 127L277 127M141 153L279 153M139 179L281 179M139 385L281 385M141 411L279 411M143 437L277 437M145 463L275 463M147 489L273 489" fill="none"/>
+  <path d="M174 44L174 168M198 38L198 168M222 38L222 168M246 44L246 168M174 402L174 525M198 402L198 532M222 402L222 532M246 402L246 525" fill="none" opacity=".65"/>
+ </g>
+ <path d="M162 44L175 40L173 166L160 168Z M245 40L258 44L260 168L247 166Z M160 402L173 404L175 528L162 524Z M247 404L260 402L258 524L245 528Z" fill="#fff" opacity=".24"/>
+</g>
+<!-- case silhouette and screws -->
+<g id="case">
+ <path d="M123 160 L143 139 L277 139 L297 160 L316 185 L316 385 L297 411 L277 432 L143 432 L123 411 L104 385 L104 185Z" fill="url(#steel)" stroke="#777" stroke-width="2"/>
+ <path d="M123 160L143 139L156 151L137 174L122 196Z M297 160L277 139L264 151L283 174L298 196Z M123 411L143 432L156 420L137 397L122 375Z M297 411L277 432L264 420L283 397L298 375Z" fill="#fff" opacity=".5"/>
+ <g id="screws" fill="#555" stroke="#eee" stroke-width="1.5">
+  <circle cx="137" cy="164" r="7"/><path d="M133 164H141" stroke="#ddd" stroke-width="2"/>
+  <circle cx="283" cy="164" r="7"/><path d="M279 164H287" stroke="#ddd" stroke-width="2"/>
+  <circle cx="137" cy="406" r="7"/><path d="M133 406H141" stroke="#ddd" stroke-width="2"/>
+  <circle cx="283" cy="406" r="7"/><path d="M279 406H287" stroke="#ddd" stroke-width="2"/>
+ </g>
+</g>
+<!-- bezel and dial -->
+<g id="bezel">
+ <rect x="111" y="146" width="198" height="278" rx="45" fill="url(#steel)" stroke="#777" stroke-width="2.5"/>
+ <rect x="126" y="160" width="168" height="250" rx="34" fill="#777" opacity=".5"/>
+</g>
+<g id="dial">
+ <rect id="dialFace" x="132" y="166" width="156" height="238" rx="28" fill="url(#dialLight)" stroke="#444" stroke-width="1.2"/>
+ <rect x="132" y="166" width="156" height="238" rx="28" fill="url(#texture)"/>
+ <g id="indices" fill="#9c9c9c">
+  <rect x="205" y="177" width="14" height="3" rx="1.5"/><rect x="205" y="389" width="14" height="3" rx="1.5"/>
+  <rect x="141" y="282" width="3" height="14" rx="1.5"/><rect x="276" y="282" width="3" height="14" rx="1.5"/>
+  <rect x="166" y="193" width="9" height="3" rx="1.5" transform="rotate(45 170 194)"/><rect x="249" y="193" width="9" height="3" rx="1.5" transform="rotate(-45 253 194)"/>
+  <rect x="166" y="374" width="9" height="3" rx="1.5" transform="rotate(-45 170 375)"/><rect x="249" y="374" width="9" height="3" rx="1.5" transform="rotate(45 253 375)"/>
+  <rect x="150" y="225" width="9" height="3" rx="1.5" transform="rotate(25 154 226)"/><rect x="259" y="225" width="9" height="3" rx="1.5" transform="rotate(-25 263 226)"/>
+  <rect x="150" y="345" width="9" height="3" rx="1.5" transform="rotate(-25 154 346)"/><rect x="259" y="345" width="9" height="3" rx="1.5" transform="rotate(25 263 346)"/>
+ </g>
+ <text x="210" y="229" font-family="Georgia,serif" font-size="12" text-anchor="middle" fill="#555" letter-spacing="2">TIEMPO DE ORO</text>
+ <text x="210" y="244" font-family="Arial,sans-serif" font-size="6" text-anchor="middle" fill="#777" letter-spacing="1.2">AUTOMATIC</text>
+ <g id="hands" stroke-linecap="round">
+  <path id="handHour" d="M210 286 L181 247" stroke="#555" stroke-width="5"/><path id="handMinute" d="M210 286 L241 263" stroke="#555" stroke-width="3.5"/>
+  <circle cx="210" cy="286" r="6" fill="#c7a66a" stroke="#555" stroke-width="1.5"/>
+  <path d="M210 292L210 335" stroke="#555" stroke-width="1.5"/>
+ </g>
+ <rect x="250" y="284" width="25" height="22" rx="3" fill="#f8f8f8" stroke="#777" stroke-width="1"/><text x="262.5" y="298" font-size="10" text-anchor="middle" fill="#222">15</text>
+</g>
+<!-- crown -->
+<g id="crown"><rect x="308" y="263" width="23" height="42" rx="8" fill="url(#steel)" stroke="#777" stroke-width="2"/><path d="M314 269V299M320 267V301M326 269V299" stroke="#888" stroke-width="1.4"/></g>
+</svg>
+</div>
+<div class="preview-foot"><span>Vista previa ilustrativa</span><button class="reset" id="reset">Restablecer diseño</button></div>
+</section>
+<section aria-label="Opciones de personalización">
+<div class="panel">
+ <div class="panel-head"><h2>01 · Acabado de caja</h2><span class="step">Elige 1</span></div>
+ <div class="options" data-group="finish">
+  <button class="option" data-value="Acero" aria-pressed="true"><span class="swatch" style="background:linear-gradient(135deg,#f7f7f7,#a7aaad,#fff)"></span><span class="option-name">Acero</span><span class="option-sub">Clásico</span></button>
+  <button class="option" data-value="Dorado" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#f3dca1,#b18a3f,#f8e7ba)"></span><span class="option-name">Dorado</span><span class="option-sub">Cálido</span></button>
+  <button class="option" data-value="Negro" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#555,#111,#333)"></span><span class="option-name">Negro</span><span class="option-sub">PVD</span></button>
+ </div>
+</div>
+<div class="panel">
+ <div class="panel-head"><h2>02 · Color de carátula</h2><span class="step">Elige 1</span></div>
+ <div class="options" data-group="dial">
+  <button class="option" data-value="Blanca" aria-pressed="true"><span class="swatch" style="background:linear-gradient(135deg,#fff,#dfe3e5)"></span><span class="option-name">Blanca</span><span class="option-sub">Luminosa</span></button>
+  <button class="option" data-value="Azul" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#587d9e,#0b1e2e)"></span><span class="option-name">Azul</span><span class="option-sub">Profunda</span></button>
+  <button class="option" data-value="Verde" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#7c9c8c,#0f2c22)"></span><span class="option-name">Verde</span><span class="option-sub">Oscura</span></button>
+ </div>
+</div>
+<div class="panel">
+ <div class="panel-head"><h2>03 · Brazalete</h2><span class="step">Elige 1</span></div>
+ <div class="options" data-group="bracelet">
+  <button class="option" data-value="Acero" aria-pressed="true"><span class="swatch" style="background:linear-gradient(135deg,#f7f7f7,#a7aaad,#fff)"></span><span class="option-name">Acero</span><span class="option-sub">Pulido</span></button>
+  <button class="option" data-value="Dorado" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#f3dca1,#b18a3f,#f8e7ba)"></span><span class="option-name">Dorado</span><span class="option-sub">Bicolor visual</span></button>
+  <button class="option" data-value="Negro" aria-pressed="false"><span class="swatch" style="background:linear-gradient(135deg,#555,#111,#333)"></span><span class="option-name">Negro</span><span class="option-sub">PVD visual</span></button>
+ </div>
+</div>
+<div class="summary">
+ <p class="summary-title">Tu configuración</p>
+ <div class="summary-row"><span>Modelo</span><strong>Santos</strong></div>
+ <div class="summary-row"><span>Acabado de caja</span><strong id="sumFinish">Acero</strong></div>
+ <div class="summary-row"><span>Carátula</span><strong id="sumDial">Blanca</strong></div>
+ <div class="summary-row"><span>Brazalete</span><strong id="sumBracelet">Acero</strong></div>
+ <div class="total"><span>Precio estimado</span><strong class="price" id="price">Por definir</strong></div>
+ <button class="cta" id="addCart">Agregar al carrito</button>
+ <p class="microcopy">La configuración y el precio se confirmarán antes de completar tu compra.</p>
+ <div class="notice" id="notice" role="status"></div>
+</div>
+</section>
+</div>
+</main>
+<footer>TIEMPO DE ORO · DISEÑA TU RELOJ</footer>
+<script>
+const state={finish:"Acero",dial:"Blanca",bracelet:"Acero"};
+const finishPaint={Acero:"url(#steel)",Dorado:"url(#gold)",Negro:"url(#black)"};
+const dialPaint={Blanca:"url(#dialLight)",Azul:"url(#dialBlue)",Verde:"url(#dialGreen)"};
+function update(){
+ document.querySelector("#sumFinish").textContent=state.finish;
+ document.querySelector("#sumDial").textContent=state.dial;
+ document.querySelector("#sumBracelet").textContent=state.bracelet;
+ document.querySelector("#dialFace").setAttribute("fill",dialPaint[state.dial]);
+ document.querySelector("#case").querySelectorAll("path,rect,circle").forEach(el=>{if(el.getAttribute("fill")==="url(#steel)")el.setAttribute("fill",finishPaint[state.finish])});
+ document.querySelector("#bezel").querySelectorAll("rect").forEach(el=>{if(el.getAttribute("fill")==="url(#steel)")el.setAttribute("fill",finishPaint[state.finish])});
+ document.querySelector("#crown").querySelectorAll("rect").forEach(el=>{if(el.getAttribute("fill")==="url(#steel)")el.setAttribute("fill",finishPaint[state.finish])});
+ document.querySelector("#bracelet").querySelectorAll("path").forEach(el=>{if(el.getAttribute("fill")==="url(#steel)")el.setAttribute("fill",finishPaint[state.bracelet])});
+ document.querySelector("#bracelet").querySelector("path").setAttribute("fill",finishPaint[state.bracelet]);
+ document.querySelectorAll("[data-group]").forEach(group=>group.querySelectorAll(".option").forEach(btn=>btn.setAttribute("aria-pressed",String(state[group.dataset.group]===btn.dataset.value))));
+}
+document.querySelectorAll("[data-group] .option").forEach(btn=>btn.addEventListener("click",()=>{state[btn.closest("[data-group]").dataset.group]=btn.dataset.value;update()}));
+document.querySelector("#reset").addEventListener("click",()=>{state.finish="Acero";state.dial="Blanca";state.bracelet="Acero";update();document.querySelector("#notice").classList.remove("show")});
+document.querySelector("#addCart").addEventListener("click",()=>{
+ const notice=document.querySelector("#notice");
+ notice.textContent="El configurador visual ya funciona. Para habilitar la compra real, falta vincular el producto y la variante de Santos en TiendaNube, definir su precio y preparar las imágenes finales de cada componente. No hemos agregado nada al carrito todavía.";
+ notice.classList.add("show");
+});
+update();
+</script>
+</body>
+</html>
